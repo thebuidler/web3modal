@@ -35,7 +35,8 @@ export const enum InjectedId {
   tokenary = 'tokenary',
   '1inch' = '1inch',
   kuCoinWallet = 'kuCoinWallet',
-  ledger = 'ledger'
+  ledger = 'ledger',
+  rainbow = 'rainbow'
 }
 
 // -- presets ------------------------------------------------------ //
@@ -159,6 +160,12 @@ export const EthereumPresets = {
       icon: 'dce1ee99-403f-44a9-9f94-20de30616500',
       url: 'https://1inch.io/wallet',
       isMobile: true
+    },
+    [InjectedId.rainbow]: {
+      name: 'Rainbow',
+      icon: '6089655c-cb7e-414b-f742-01fdc154be00',
+      url: 'https://rainbow.me/extension',
+      isMobile: true
     }
   } as Record<string, InjectedPreset | undefined>,
 
@@ -187,6 +194,7 @@ export const EthereumPresets = {
     if (ethereum.isOneInchIOSWallet || ethereum.isOneInchAndroidWallet) return InjectedId['1inch']
     if (ethereum.isKuCoinWallet) return InjectedId.kuCoinWallet
     if (ethereum.isMetaMask) return InjectedId.metaMask
+    if (ethereum.isRainbow) return InjectedId.rainbow
 
     return 'injected'
   },

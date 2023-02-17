@@ -36,7 +36,8 @@ export const enum InjectedId {
   '1inch' = '1inch',
   kuCoinWallet = 'kuCoinWallet',
   ledger = 'ledger',
-  rainbow = 'rainbow'
+  rainbow = 'rainbow',
+  safepal = 'safepal'
 }
 
 // -- presets ------------------------------------------------------ //
@@ -166,6 +167,13 @@ export const EthereumPresets = {
       icon: '6089655c-cb7e-414b-f742-01fdc154be00',
       url: 'https://rainbow.me/extension',
       isMobile: true
+    },
+    [InjectedId.safepal]: {
+      name: 'SafePal',
+      icon: '14096232-7483-425b-f9a9-658f94fe7100',
+      url: 'https://safepal.com/',
+      isInjected: true,
+      isMobile: true
     }
   } as Record<string, InjectedPreset | undefined>,
 
@@ -195,6 +203,7 @@ export const EthereumPresets = {
     if (ethereum.isKuCoinWallet) return InjectedId.kuCoinWallet
     if (ethereum.isMetaMask) return InjectedId.metaMask
     if (ethereum.isRainbow) return InjectedId.rainbow
+    if (ethereum.isSafePal) return InjectedId.safepal
 
     return 'injected'
   },

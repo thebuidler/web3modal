@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/prefer-ts-expect-error */
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Chain, Client, Connector } from '@wagmi/core'
 import {
   connect,
@@ -107,12 +109,13 @@ export class EthereumClient {
 
   public async connectWalletConnect(onUri: (uri: string) => void, selectedChainId?: number) {
     const { connector, isV2 } = this.getWalletConnectConnectors()
+    // @ts-ignore
     const chainId = selectedChainId ?? this.getDefaultConnectorChainId(connector)
     const handleProviderEvents = isV2
       ? this.connectWalletConnectV2.bind(this)
       : this.connectWalletConnectV1.bind(this)
     const [data] = await Promise.all([
-      connect({ connector, chainId }),
+      connect({ connector }),
       handleProviderEvents(connector, onUri)
     ])
 
@@ -121,8 +124,9 @@ export class EthereumClient {
 
   public async connectConnector(connectorId: ConnectorId | string, selectedChainId?: number) {
     const connector = this.getConnectorById(connectorId)
+    // @ts-ignore
     const chainId = selectedChainId ?? this.getDefaultConnectorChainId(connector)
-    const data = await connect({ connector, chainId })
+    const data = await connect({ connector })
 
     return data
   }

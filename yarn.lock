@@ -2387,6 +2387,14 @@
     "@tanstack/query-core" "4.27.0"
     use-sync-external-store "^1.2.0"
 
+"@thebuidler/web3modal-ui-mod@0.1.0":
+  version "0.1.0-rc3"
+  dependencies:
+    "@web3modal/core" "2.2.2"
+    lit "2.6.1"
+    motion "10.15.5"
+    qrcode "1.5.1"
+
 "@tootallnate/once@2":
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
@@ -2994,6 +3002,11 @@
   dependencies:
     "@walletconnect/window-getters" "^1.0.1"
     tslib "1.14.1"
+
+"@web3modal/ethereum@2.2.2":
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/@web3modal/ethereum/-/ethereum-2.2.2.tgz#aad8957deb4db4a3224b9e7bac538f1995bb5bcf"
+  integrity sha512-ksyGQsyK4pMU2Z83zZNo7HKPmjWkhcfK6K4ip+w3R/Rstcpqy/kHW/DUClXY76itu323EdesV6gBzASZ3CwBdQ==
 
 "@yarnpkg/lockfile@^1.1.0":
   version "1.1.0"

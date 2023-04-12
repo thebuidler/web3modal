@@ -1,6 +1,6 @@
 {
   "name": "@thebuidler/web3modal-ui-mod",
-  "version": "0.1.0",
+  "version": "0.1.0-rc3",
   "main": "dist/index.js",
   "type": "module",
   "types": "dist/_types/index.d.ts",

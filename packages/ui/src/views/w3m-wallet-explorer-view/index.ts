@@ -1,8 +1,20 @@
-import type { InstallConnectorData, Listing, MobileWallet } from '@web3modal/core'
-import { CoreUtil, ExplorerCtrl, OptionsCtrl, RouterCtrl, ToastCtrl } from '@web3modal/core'
-import { LitElement, html } from 'lit'
+/* eslint-disable @typescript-eslint/consistent-type-imports */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {
+  ClientCtrl,
+  CoreUtil,
+  ExplorerCtrl,
+  InstallConnectorData,
+  Listing,
+  MobileWallet,
+  OptionsCtrl,
+  RouterCtrl,
+  ToastCtrl
+} from '@web3modal/core'
+import { html, LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
+import { InjectedId } from '../../presets/EthereumPresets'
 import { DataFilterUtil } from '../../utils/DataFilterUtil'
 import { ThemeUtil } from '../../utils/ThemeUtil'
 import { UiUtil } from '../../utils/UiUtil'
@@ -124,9 +136,32 @@ export class W3mWalletExplorerView extends LitElement {
 
   private onConnectExtension(data: InstallConnectorData) {
     const injectedId = UiUtil.getWalletId('')
+
+    let triedAndFailed = false
     if (injectedId === data.id) {
       RouterCtrl.push('InjectedConnector')
+    }
+    // If BitKeep or SafePal, check for window objects, if exist, override injected
+    else if (data.id === InjectedId.bitkeep && (window as any).bitkeep?.ethereum) {
+      try {
+        ClientCtrl.client().getConnectorById(InjectedId.bitkeep)
+        RouterCtrl.push('InjectedConnector', { InjectedConnector: { id: InjectedId.bitkeep } })
+      } catch (e) {
+        triedAndFailed = true
+      }
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } else if (data.id === InjectedId.safepal && (window as any).safepalProvider) {
+      try {
+        ClientCtrl.client().getConnectorById(InjectedId.safepal)
+        RouterCtrl.push('InjectedConnector', { InjectedConnector: { id: InjectedId.safepal } })
+      } catch (e) {
+        triedAndFailed = true
+      }
     } else {
+      RouterCtrl.push('InstallConnector', { InstallConnector: data })
+    }
+
+    if (triedAndFailed) {
       RouterCtrl.push('InstallConnector', { InstallConnector: data })
     }
   }

@@ -1,4 +1,4 @@
-import type { W3mCoreButton } from '@web3modal/ui'
+import type { W3mCoreButton } from '@thebuidler/web3modal-ui-mod'
 import React from 'react'
 
 /**

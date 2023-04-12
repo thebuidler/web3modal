@@ -4,8 +4,8 @@
 const nextConfig = {
   transpilePackages: [
     '@web3modal/ethereum',
-    '@web3modal/react',
-    '@web3modal/ui',
+    '@thebuidler/web3modal-ui-mod',
+    '@thebuidler/web3modal-ui-mod',
     '@web3modal/core'
   ],
   typescript: {

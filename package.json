@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "build": "npm run build --ws --if-present",
-    "dev": "npm run dev --w=@web3modal/core & npm run dev --w=@web3modal/ui & npm run dev --w=@web3modal/ethereum & npm run dev --w=@web3modal/react",
+    "dev": "npm run dev --w=@web3modal/core & npm run dev --w=@thebuidler/web3modal-ui-mod & npm run dev --w=@web3modal/ethereum & npm run dev --w=@thebuidler/web3modal-ui-mod",
     "dev:lab": "npm run dev --w=laboratory",
     "lint": "eslint .",
     "prettier": "prettier --check .",

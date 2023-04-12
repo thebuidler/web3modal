@@ -24,7 +24,7 @@ export class Web3Modal {
 
   private async initUi() {
     if (typeof window !== 'undefined') {
-      await import('@web3modal/ui')
+      await import('@thebuidler/web3modal-ui-mod')
       const modal = document.createElement('w3m-modal')
       document.body.insertAdjacentElement('beforeend', modal)
       OptionsCtrl.setIsUiLoaded(true)

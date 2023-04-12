@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@web3modal/core": "2.2.2",
-    "@web3modal/ui": "2.2.2"
+    "@thebuidler/web3modal-ui-mod": "2.2.2"
   },
   "keywords": [
     "web3",

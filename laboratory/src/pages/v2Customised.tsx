@@ -1,5 +1,5 @@
+import { Web3Modal } from '@thebuidler/web3modal-ui-mod'
 import { EthereumClient, w3mConnectors, w3mProvider } from '@web3modal/ethereum'
-import { Web3Modal } from '@web3modal/react'
 import { configureChains, createClient, WagmiConfig } from 'wagmi'
 import { mainnet, polygon } from 'wagmi/chains'
 import WagmiWeb3ModalWidget from '../components/WagmiWeb3ModalWidget'

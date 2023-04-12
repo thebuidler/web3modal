@@ -169,6 +169,10 @@ export interface InstallConnectorData {
   isMobile?: boolean
 }
 
+export interface InjectedConnectorData {
+  id: string
+}
+
 export interface RouterCtrlState {
   history: RouterView[]
   view: RouterView
@@ -176,6 +180,7 @@ export interface RouterCtrlState {
     DesktopConnector?: DesktopConnectorData
     SwitchNetwork?: SwitchNetworkData
     InstallConnector?: InstallConnectorData
+    InjectedConnector?: InjectedConnectorData
   }
 }
 

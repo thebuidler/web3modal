@@ -1,4 +1,4 @@
-import type { W3mNetworkSwitch } from '@web3modal/ui'
+import type { W3mNetworkSwitch } from '@thebuidler/web3modal-ui-mod'
 import React from 'react'
 
 /**

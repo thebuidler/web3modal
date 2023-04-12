@@ -1,4 +1,4 @@
-import { ClientCtrl } from '@web3modal/core'
+import { ClientCtrl, RouterCtrl } from '@web3modal/core'
 import { html, LitElement } from 'lit'
 import { customElement, state } from 'lit/decorators.js'
 import { classMap } from 'lit/directives/class-map.js'
@@ -22,14 +22,26 @@ export class W3mInjectedConnectorView extends LitElement {
   }
 
   // -- private ------------------------------------------------------ //
-  private readonly connector = ClientCtrl.client().getConnectorById('injected')
+  private connector = ClientCtrl.client().getConnectorById('injected')
+
+  private getRouterData() {
+    const data = RouterCtrl.state.data?.InjectedConnector
+    if (data) {
+      this.connector = ClientCtrl.client().getConnectorById(data.id)
+
+      return data
+    }
+
+    return { id: 'injected' }
+  }
 
   private async onConnect() {
     const { ready } = this.connector
     if (ready) {
+      const { id } = this.getRouterData()
       this.error = false
       this.connecting = true
-      await UiUtil.handleConnectorConnection('injected', () => {
+      await UiUtil.handleConnectorConnection(id, () => {
         this.error = true
         this.connecting = false
       })

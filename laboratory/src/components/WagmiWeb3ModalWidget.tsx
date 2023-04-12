@@ -1,5 +1,5 @@
 import { Button, Card, Divider, Modal, Text } from '@nextui-org/react'
-import { useWeb3ModalTheme, Web3Button, Web3NetworkSwitch } from '@web3modal/react'
+import { useWeb3ModalTheme, Web3Button, Web3NetworkSwitch } from '@thebuidler/web3modal-ui-mod'
 import { useEffect, useState } from 'react'
 import { useAccount, useContractRead, useSignMessage } from 'wagmi'
 import { avalanche } from 'wagmi/chains'

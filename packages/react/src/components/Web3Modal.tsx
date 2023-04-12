@@ -25,7 +25,7 @@ function CreateWeb3Modal({ ethereumClient, ...config }: Web3ModalProps) {
       ClientCtrl.setEthereumClient(ethereumClient)
     }
     ConfigCtrl.setConfig({ ...config, walletConnectVersion: ethereumClient?.walletConnectVersion })
-    await import('@web3modal/ui')
+    await import('@thebuidler/web3modal-ui-mod')
     OptionsCtrl.setIsUiLoaded(true)
   }, [ethereumClient, config])
 
